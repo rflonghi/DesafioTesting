@@ -18,11 +18,11 @@ public class House {
     private String name;
 
     @NotNull
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private District district;
 
     @NotNull
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Room> rooms;
 
     public House() {

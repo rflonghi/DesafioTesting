@@ -1,7 +1,9 @@
 package br.com.meli.desafio_quality.service;
 
+import br.com.meli.desafio_quality.dto.HouseDTO;
 import br.com.meli.desafio_quality.model.House;
 import br.com.meli.desafio_quality.model.Room;
+import br.com.meli.desafio_quality.repository.HouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,16 @@ public class HouseService {
 
   @Autowired
   RoomService roomService;
+
+  @Autowired
+  HouseRepository houseRepository;
+
+  public HouseDTO createHouse(HouseDTO houseDTO) {
+    House house = houseRepository.save(houseDTO.toModel());
+    houseDTO.setId(house.getId());
+
+    return houseDTO;
+  }
 
   public double getTotalArea(House house) {
     return house.getRooms().stream().mapToDouble(r -> roomService.getRoomArea(r)).sum();
