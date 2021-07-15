@@ -18,8 +18,7 @@ public class House {
     private String name;
 
     @NotNull
-    @OneToOne(cascade = CascadeType.ALL)
-    private District district;
+    private String districtName;
 
     @NotNull
     @OneToMany(cascade = CascadeType.ALL)
@@ -28,9 +27,9 @@ public class House {
     public House() {
     }
 
-    public House(String name, District district, List<Room> rooms) {
+    public House(String name, String districtName, List<Room> rooms) {
         this.name = name;
-        this.district = district;
+        this.districtName = districtName;
         this.rooms = rooms;
     }
 
@@ -50,12 +49,12 @@ public class House {
         this.name = name;
     }
 
-    public District getDistrict() {
-        return district;
+    public String getDistrictName() {
+        return districtName;
     }
 
-    public void setDistrict(District district) {
-        this.district = district;
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
     }
 
     public List<Room> getRooms() {

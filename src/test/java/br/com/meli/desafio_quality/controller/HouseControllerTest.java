@@ -35,14 +35,18 @@ public class HouseControllerTest {
 
     @Test
     public void createHouse_mustPass() throws Exception {
+        District district = new District("Pirituba City", new BigDecimal("2000.0"));
+        mockMvc.perform(post("/api/district/create")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(district)))
+                .andExpect(status().isOk());
+
         List<Room> rooms = new ArrayList<>();
         rooms.add(new Room("Bedroom", 2d, 3d));
         rooms.add(new Room("Kitchen", 4d, 2d));
         rooms.add(new Room("Living Room", 3d, 3d));
 
-        District district = new District("Pirituba City", new BigDecimal(2000));
-
-        House house = new House("Patricia", district, rooms);
+        House house = new House("Patricia", "Pirituba City", rooms);
 
         mockMvc.perform(post("/api/house/create")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -57,9 +61,7 @@ public class HouseControllerTest {
         rooms.add(new Room("Kitchen", 4d, 2d));
         rooms.add(new Room("Living Room", 3d, 3d));
 
-        District district = new District("Pirituba City", new BigDecimal(2000));
-
-        House house = new House("patricia", district, rooms);
+        House house = new House("patricia", "Pirituba City", rooms);
 
         mockMvc.perform(post("/api/house/create")
             .contentType(MediaType.APPLICATION_JSON)

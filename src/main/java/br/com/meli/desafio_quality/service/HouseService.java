@@ -2,6 +2,7 @@ package br.com.meli.desafio_quality.service;
 
 import br.com.meli.desafio_quality.dto.HouseDTO;
 import br.com.meli.desafio_quality.exception.HouseNotFoundException;
+import br.com.meli.desafio_quality.model.District;
 import br.com.meli.desafio_quality.model.House;
 import br.com.meli.desafio_quality.model.Room;
 import br.com.meli.desafio_quality.repository.HouseRepository;
@@ -22,6 +23,9 @@ public class HouseService {
   @Autowired
   HouseRepository houseRepository;
 
+  @Autowired
+  DistrictService districtService;
+
   public HouseDTO createHouse(HouseDTO houseDTO) {
     House house = houseRepository.save(houseDTO.toModel());
     houseDTO.setId(house.getId());
@@ -34,7 +38,8 @@ public class HouseService {
   }
 
   public BigDecimal calculateHousePrice (House house){
-    return house.getDistrict().getValue().multiply(BigDecimal.valueOf(getTotalArea(house)));
+    District district = districtService.getDistrictByName(house.getDistrictName());
+    return district.getValue().multiply(BigDecimal.valueOf(getTotalArea(house)));
   }
 
   public Room getBiggestRoom(House house) {

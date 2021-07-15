@@ -21,6 +21,15 @@ public class DistrictDTO {
     public DistrictDTO() {
     }
 
+    public DistrictDTO(@NotNull @Size(min = 3, max = 45) String name, @NotNull BigDecimal value) {
+        this.name = name;
+        this.value = value;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

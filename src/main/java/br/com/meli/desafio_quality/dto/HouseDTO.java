@@ -23,8 +23,7 @@ public class HouseDTO {
     private String name;
 
     @NotNull
-    @Valid
-    private DistrictDTO district;
+    private String districtName;
 
     @NotNull
     @Valid
@@ -50,12 +49,12 @@ public class HouseDTO {
         this.name = name;
     }
 
-    public DistrictDTO getDistrict() {
-        return district;
+    public String getDistrictName() {
+        return districtName;
     }
 
-    public void setDistrict(DistrictDTO district) {
-        this.district = district;
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
     }
 
     public List<RoomDTO> getRooms() {
@@ -69,7 +68,7 @@ public class HouseDTO {
     public House toModel() {
         House house = new House();
         house.setName(getName());
-        house.setDistrict(getDistrict().toModel());
+        house.setDistrictName(getDistrictName());
         house.setRooms(getRooms().stream().map(RoomDTO::toModel).collect(Collectors.toList()));
 
         return house;

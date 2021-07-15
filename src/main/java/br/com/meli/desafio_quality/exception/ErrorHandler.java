@@ -1,7 +1,6 @@
 package br.com.meli.desafio_quality.exception;
 
 import br.com.meli.desafio_quality.dto.ErrorDTO;
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -21,7 +20,7 @@ public class ErrorHandler {
     List<String> listFields = exception.getFieldErrors().stream().map(e -> e.getField() + " " + e.getDefaultMessage()).collect(Collectors.toList());
     error.setMessage("Invalid Fields: " + listFields.toString());
     error.setStatusCode(400);
-    return new ResponseEntity<ErrorDTO>(error, HttpStatus.BAD_REQUEST);
+    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
   }
 
   @ExceptionHandler({HttpMessageNotReadableException.class})
@@ -30,7 +29,7 @@ public class ErrorHandler {
     error.setName("Http message Not Readable Exception.");
     error.setMessage("Invalid request body");
     error.setStatusCode(400);
-    return new ResponseEntity<ErrorDTO>(error, HttpStatus.BAD_REQUEST);
+    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
   }
 
   @ExceptionHandler({HouseNotFoundException.class})
@@ -39,6 +38,15 @@ public class ErrorHandler {
     error.setName("House not found exception");
     error.setMessage(exception.getMessage());
     error.setStatusCode(400);
-    return new ResponseEntity<ErrorDTO>(error, HttpStatus.BAD_REQUEST);
+    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler({DistrictNotFoundException.class})
+  public ResponseEntity<ErrorDTO> DistrictNotFoundExceptionHandler(Exception exception) {
+    ErrorDTO error = new ErrorDTO();
+    error.setName("District not found exception");
+    error.setMessage(exception.getMessage());
+    error.setStatusCode(400);
+    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
   }
 }
