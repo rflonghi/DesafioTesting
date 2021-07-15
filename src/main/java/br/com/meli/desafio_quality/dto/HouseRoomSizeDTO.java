@@ -1,10 +1,12 @@
 package br.com.meli.desafio_quality.dto;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class HouseRoomSizeDTO {
 
     private String houseName;
+
     private String houseDistrict;
 
     private Map<String, Double> rooms;
@@ -34,5 +36,18 @@ public class HouseRoomSizeDTO {
 
     public void setRooms(Map<String, Double> rooms) {
         this.rooms = rooms;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HouseRoomSizeDTO that = (HouseRoomSizeDTO) o;
+        return houseName.equals(that.houseName)  && houseDistrict.equals(that.houseDistrict)  && Objects.equals(rooms, that.rooms);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(houseName, houseDistrict, rooms);
     }
 }

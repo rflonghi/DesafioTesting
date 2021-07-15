@@ -106,4 +106,7 @@ public class HouseServiceTest {
 
     assertNotEquals("Bedroom",houseService.getBiggestRoom(house).getName());
   }
+
+
+
 }
