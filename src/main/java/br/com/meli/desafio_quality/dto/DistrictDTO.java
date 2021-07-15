@@ -3,6 +3,7 @@ package br.com.meli.desafio_quality.dto;
 import br.com.meli.desafio_quality.model.District;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
@@ -15,7 +16,6 @@ public class DistrictDTO {
     private String name;
 
     @NotNull
-    @Size(min = 1, max = 13)
     private BigDecimal value;
 
     public DistrictDTO() {

@@ -8,6 +8,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,6 +19,7 @@ public class HouseDTO {
 
     @NotNull
     @Size(min = 3, max = 30)
+    @Pattern(regexp = "\\b[A-Z][\\w\\s]*\\b", message = "A primeira letra deve ser maiúscula")
     private String name;
 
     @NotNull
@@ -25,6 +28,7 @@ public class HouseDTO {
 
     @NotNull
     @Valid
+    @Size(min=1, max=500)
     private List<RoomDTO> rooms;
 
     public HouseDTO() {

@@ -18,7 +18,6 @@ public class District {
     private String name;
 
     @NotNull
-    @Size(min = 1, max = 13)
     private BigDecimal value;
 
     public District() {

@@ -2,10 +2,7 @@ package br.com.meli.desafio_quality.dto;
 
 import br.com.meli.desafio_quality.model.Room;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class RoomDTO {
 
@@ -13,6 +10,7 @@ public class RoomDTO {
 
     @NotNull
     @Size(min = 3, max = 30)
+    @Pattern(regexp = "\\b[A-Z][\\w\\s]*\\b", message = "A primeira letra deve ser maiúscula")
     private String name;
 
     @NotNull
