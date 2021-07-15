@@ -1,6 +1,7 @@
 package br.com.meli.desafio_quality.service;
 
 import br.com.meli.desafio_quality.dto.HouseDTO;
+import br.com.meli.desafio_quality.dto.HouseRoomSizeDTO;
 import br.com.meli.desafio_quality.exception.HouseNotFoundException;
 import br.com.meli.desafio_quality.model.District;
 import br.com.meli.desafio_quality.model.House;
@@ -10,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class HouseService {
@@ -42,11 +41,36 @@ public class HouseService {
     return district.getValue().multiply(BigDecimal.valueOf(getTotalArea(house)));
   }
 
+  public BigDecimal calculateHousePriceById (Long id){
+    return calculateHousePrice(findById(id));
+  }
+
   public Room getBiggestRoom(House house) {
     house.getRooms().sort(Comparator.comparingDouble(r -> roomService.getRoomArea(r)));
     Collections.reverse(house.getRooms());
 
     return house.getRooms().get(0);
+  }
+
+  public Room getBiggestRoomByHouseId(Long id) {
+    return getBiggestRoom(findById(id));
+  }
+
+  public HouseRoomSizeDTO getRoomsByHouseId(Long id) {
+    House house = findById(id);
+
+    Map<String, Double> rooms = new HashMap<>();
+
+    house.getRooms().forEach(e -> {
+      rooms.put(e.getName(), roomService.getRoomArea(e));
+    });
+
+    HouseRoomSizeDTO houseRoomSizeDTO = new HouseRoomSizeDTO();
+    houseRoomSizeDTO.setHouseName(house.getName());
+    houseRoomSizeDTO.setHouseDistrict(house.getDistrictName());
+    houseRoomSizeDTO.setRooms(rooms);
+
+    return houseRoomSizeDTO;
   }
 
   private House findById(Long id) {
