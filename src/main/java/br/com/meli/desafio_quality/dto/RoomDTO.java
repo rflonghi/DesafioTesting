@@ -26,12 +26,6 @@ public class RoomDTO {
     public RoomDTO() {
     }
 
-    public RoomDTO(String name, Double length, Double width) {
-        this.name = name;
-        this.length = length;
-        this.width = width;
-    }
-
     public Long getId() {
         return id;
     }

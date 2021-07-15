@@ -34,12 +34,6 @@ public class HouseDTO {
     public HouseDTO() {
     }
 
-    public HouseDTO(String name, DistrictDTO district, List<RoomDTO> rooms) {
-        this.name = name;
-        this.district = district;
-        this.rooms = rooms;
-    }
-
     public Long getId() {
         return id;
     }

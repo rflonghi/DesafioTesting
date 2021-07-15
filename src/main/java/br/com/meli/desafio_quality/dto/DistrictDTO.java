@@ -21,11 +21,6 @@ public class DistrictDTO {
     public DistrictDTO() {
     }
 
-    public DistrictDTO(String name, BigDecimal value) {
-        this.name = name;
-        this.value = value;
-    }
-
     public Long getId() {
         return id;
     }

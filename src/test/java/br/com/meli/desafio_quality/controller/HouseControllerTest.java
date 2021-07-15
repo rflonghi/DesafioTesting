@@ -39,11 +39,36 @@ public class HouseControllerTest {
 
         District district = new District("Pirituba City", new BigDecimal(2000));
 
-        House house = new House("Patrícia", district, rooms);
+        House house = new House("Patricia", district, rooms);
 
         mockMvc.perform(post("/api/house/create")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(house)))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void createHouse_mustNotPass() throws Exception {
+        List<Room> rooms = new ArrayList<>();
+        rooms.add(new Room("Bedroom", 2d, 3d));
+        rooms.add(new Room("Kitchen", 4d, 2d));
+        rooms.add(new Room("Living Room", 3d, 3d));
+
+        District district = new District("Pirituba City", new BigDecimal(2000));
+
+        House house = new House("patricia", district, rooms);
+
+        mockMvc.perform(post("/api/house/create")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(house)))
+            .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void createHouse_mustThrowHttpMessageNotReadableException() throws Exception {
+        mockMvc.perform(post("/api/house/create")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(""))
+            .andExpect(status().isBadRequest());
     }
 }

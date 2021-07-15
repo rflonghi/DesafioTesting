@@ -24,15 +24,6 @@ public class ErrorHandler {
     return new ResponseEntity<ErrorDTO>(error, HttpStatus.BAD_REQUEST);
   }
 
-  @ExceptionHandler({InvalidFormatException.class})
-  public ResponseEntity<ErrorDTO> InvalidFormatExceptionHandler(InvalidFormatException exception) {
-    ErrorDTO error = new ErrorDTO();
-    error.setName("Invalid format");
-    error.setMessage(exception.getOriginalMessage());
-    error.setStatusCode(400);
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
   @ExceptionHandler({HttpMessageNotReadableException.class})
   public ResponseEntity<ErrorDTO> HttpMessageNotReadableExceptionHandler(Exception exception) {
     ErrorDTO error = new ErrorDTO();
