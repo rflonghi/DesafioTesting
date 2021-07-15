@@ -32,4 +32,13 @@ public class ErrorHandler {
     error.setStatusCode(400);
     return new ResponseEntity<ErrorDTO>(error, HttpStatus.BAD_REQUEST);
   }
+
+  @ExceptionHandler({HouseNotFoundException.class})
+  public ResponseEntity<ErrorDTO> HouseNotFoundExceptionHandler(Exception exception) {
+    ErrorDTO error = new ErrorDTO();
+    error.setName("House not found exception");
+    error.setMessage(exception.getMessage());
+    error.setStatusCode(400);
+    return new ResponseEntity<ErrorDTO>(error, HttpStatus.BAD_REQUEST);
+  }
 }
