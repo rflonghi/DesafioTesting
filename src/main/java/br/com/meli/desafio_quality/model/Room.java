@@ -1,6 +1,7 @@
 package br.com.meli.desafio_quality.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -19,10 +20,12 @@ public class Room {
 
     @NotNull
     @Min(value = 1)
+    @Max(value = 33)
     private Double length;
 
     @NotNull
     @Min(value = 1)
+    @Max(value = 25)
     private Double width;
 
     public Room() {
