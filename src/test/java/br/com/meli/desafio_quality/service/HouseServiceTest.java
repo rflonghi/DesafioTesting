@@ -75,4 +75,32 @@ public class HouseServiceTest {
 
     assertNotEquals(new BigDecimal("49000.0"),houseService.calculateHousePrice(house));
   }
+
+  @Test
+  public void getBiggestRoom_mustPass(){
+    List<Room> rooms = new ArrayList<>();
+    rooms.add(new Room("Bedroom", 2d, 3d));
+    rooms.add(new Room("Kitchen", 4d, 2d));
+    rooms.add(new Room("Living Room", 3d, 3d));
+
+    District district = new District("Pirituba City", new BigDecimal(2000));
+
+    House house = new House("Patrícia", district, rooms);
+
+    assertEquals("Living Room",houseService.getBiggestRoom(house).getName());
+  }
+
+  @Test
+  public void getBiggestRoom_mustNotPass(){
+    List<Room> rooms = new ArrayList<>();
+    rooms.add(new Room("Bedroom", 2d, 3d));
+    rooms.add(new Room("Kitchen", 4d, 2d));
+    rooms.add(new Room("Living Room", 3d, 3d));
+
+    District district = new District("Pirituba City", new BigDecimal(2000));
+
+    House house = new House("Patrícia", district, rooms);
+
+    assertNotEquals("Bedroom",houseService.getBiggestRoom(house).getName());
+  }
 }
