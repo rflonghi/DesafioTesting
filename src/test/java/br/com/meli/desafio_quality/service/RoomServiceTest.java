@@ -14,14 +14,14 @@ public class RoomServiceTest {
     RoomService roomService;
 
     @Test
-    public void getRoomM2Test_mustPass() {
+    public void getRoomAreaTest_mustPass() {
         Room room = new Room( "Bedroom",5d, 5d);
-        assertEquals(25, roomService.getRoomM2(room));
+        assertEquals(25, roomService.getRoomArea(room));
     }
 
     @Test
-    public void getRoomM2Test_mustNotPass() {
+    public void getRoomAreaTest_mustNotPass() {
         Room room = new Room( "Bedroom",5d, 5d);
-        assertNotEquals(30, roomService.getRoomM2(room));
+        assertNotEquals(30, roomService.getRoomArea(room));
     }
 }
