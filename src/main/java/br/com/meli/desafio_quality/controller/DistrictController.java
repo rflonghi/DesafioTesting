@@ -3,6 +3,7 @@ package br.com.meli.desafio_quality.controller;
 import br.com.meli.desafio_quality.dto.DistrictDTO;
 import br.com.meli.desafio_quality.service.DistrictService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

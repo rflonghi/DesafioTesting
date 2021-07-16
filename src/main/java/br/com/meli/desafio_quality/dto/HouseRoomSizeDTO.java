@@ -45,9 +45,4 @@ public class HouseRoomSizeDTO {
         HouseRoomSizeDTO that = (HouseRoomSizeDTO) o;
         return houseName.equals(that.houseName)  && houseDistrict.equals(that.houseDistrict)  && Objects.equals(rooms, that.rooms);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(houseName, houseDistrict, rooms);
-    }
 }
