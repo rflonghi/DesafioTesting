@@ -4,6 +4,9 @@ import br.com.meli.desafio_quality.model.Room;
 
 import javax.validation.constraints.*;
 
+/*
+// Author: Rodrigo Longhi
+*/
 public class RoomDTO {
 
     private Long id;

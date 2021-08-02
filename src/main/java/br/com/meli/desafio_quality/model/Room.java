@@ -6,6 +6,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/*
+// Author: Arthur Donizetti
+*/
 @Entity
 @Table(name = "tbl_rooms")
 public class Room {

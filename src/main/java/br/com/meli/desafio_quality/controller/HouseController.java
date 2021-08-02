@@ -14,7 +14,9 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/*
+// Author: Michel Andrew
+*/
 @RestController
 @RequestMapping(value = "/api/house")
 public class HouseController {

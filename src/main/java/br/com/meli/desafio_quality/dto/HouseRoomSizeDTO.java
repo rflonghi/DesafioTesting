@@ -3,6 +3,9 @@ package br.com.meli.desafio_quality.dto;
 import java.util.Map;
 import java.util.Objects;
 
+/*
+// Author: Michel Andrew
+*/
 public class HouseRoomSizeDTO {
 
     private String houseName;

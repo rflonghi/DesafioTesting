@@ -7,6 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+/*
+// Author: Yan Broetto
+*/
 @SpringBootTest
 public class RoomServiceTest {
 

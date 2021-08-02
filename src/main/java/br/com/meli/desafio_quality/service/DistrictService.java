@@ -9,18 +9,27 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/*
+// Author: Arthur Donizetti
+*/
 @Service
 public class DistrictService {
 
     @Autowired
     DistrictRepository districtRepository;
 
+    /*
+    //  Create new district based on districtDTO
+    */
     public DistrictDTO createDistrict(DistrictDTO districtDTO) {
         District district = districtRepository.save(districtDTO.toModel());
         districtDTO.setId(district.getId());
         return districtDTO;
     }
 
+    /*
+    //  Find district by name
+    */
     public District getDistrictByName(String name) {
         Optional<District> district = districtRepository.findByName(name);
         if (district.isEmpty())
