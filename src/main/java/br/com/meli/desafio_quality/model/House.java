@@ -5,6 +5,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+/*
+// Author: Yan Broetto
+*/
 @Entity
 @Table(name = "tbl_houses")
 public class House {

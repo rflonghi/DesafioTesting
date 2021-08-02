@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
+/*
+// Author: Arthur Donizetti
+*/
 @RestController
 @RequestMapping(value = "/api/district")
 public class DistrictController {

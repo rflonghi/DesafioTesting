@@ -1,5 +1,8 @@
 package br.com.meli.desafio_quality.dto;
 
+/*
+// Author: Yan Broetto
+*/
 public class ErrorDTO {
   private String name;
   private Integer statusCode;

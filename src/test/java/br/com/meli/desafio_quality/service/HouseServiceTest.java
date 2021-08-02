@@ -1,22 +1,20 @@
 package br.com.meli.desafio_quality.service;
 
 import br.com.meli.desafio_quality.dto.DistrictDTO;
-import br.com.meli.desafio_quality.model.District;
 import br.com.meli.desafio_quality.model.House;
 import br.com.meli.desafio_quality.model.Room;
-import org.aspectj.lang.annotation.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+/*
+// Author: Rodrigo Longhi
+*/
 @SpringBootTest
 public class HouseServiceTest {
 

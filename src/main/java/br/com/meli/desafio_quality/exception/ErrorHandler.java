@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+// Author: Arthur Donizetti
+*/
 @ControllerAdvice
 public class ErrorHandler {
   @ExceptionHandler({MethodArgumentNotValidException.class})

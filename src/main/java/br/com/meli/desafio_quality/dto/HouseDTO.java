@@ -1,19 +1,16 @@
 package br.com.meli.desafio_quality.dto;
 
-import br.com.meli.desafio_quality.model.District;
 import br.com.meli.desafio_quality.model.House;
-import br.com.meli.desafio_quality.model.Room;
-
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+// Author: Arthur Donizetti
+*/
 public class HouseDTO {
     private Long id;
 
